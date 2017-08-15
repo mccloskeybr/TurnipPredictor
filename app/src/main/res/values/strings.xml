@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ACNL: Stalk Market Tracker</string>
+    <string name="btitle_turnip">Add Turnip Price</string>
+    <string name="btitle_base">New Base Price</string>
+    <string name="btitle_deleteOne">Delete Last Entry</string>
+    <string name="btitle_reset">Reset Prices</string>
+    <string name="btitle_back">Back</string>
+    <string name="btitle_enter">Enter</string>
+    <string name="tv_pattern">POSSIBLE PATTERNS</string>
+</resources>

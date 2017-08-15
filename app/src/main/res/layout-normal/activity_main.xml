@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wordpress.mccloskeydev.turnippredictor.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="wrap_content"
+            android:layout_height="245dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/graph_bg"
+            android:id="@+id/graph"/>
+
+        <ImageView
+            android:id="@+id/iv_block"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/b_addPrice"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="180dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/block_vert" />
+
+        <ImageView
+            android:id="@+id/iv_turnip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@id/graph"
+            android:layout_alignEnd="@id/graph"
+            android:layout_alignRight="@id/graph"
+            android:layout_marginTop="120dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:scaleType="fitEnd"
+            app:srcCompat="@drawable/turnip_trans" />
+
+        <Button
+            android:id="@+id/b_addPrice"
+            android:layout_width="160dp"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="260dp"
+            android:background="@drawable/button"
+            android:fontFamily="casual"
+            android:onClick="onClick_switchToTurnip"
+            android:text="@string/btitle_turnip"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_anchor="@+id/graph" />
+
+        <Button
+            android:id="@+id/b_newBase"
+            android:layout_width="160dp"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="335dp"
+            android:background="@drawable/button"
+            android:fontFamily="casual"
+            android:onClick="onClick_switchToBase"
+            android:text="@string/btitle_base"
+            android:textStyle="bold"
+            app:layout_anchor="@+id/graph" />
+
+        <Button
+            android:id="@+id/b_deleteOne"
+            android:layout_width="160dp"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="410dp"
+            android:background="@drawable/button"
+            android:fontFamily="casual"
+            android:onClick="onClick_deleteOne"
+            android:text="@string/btitle_deleteOne"
+            android:textStyle="bold"
+            app:layout_anchor="@+id/graph" />
+
+        <Button
+            android:id="@+id/b_resetAll"
+            android:layout_width="160dp"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="485dp"
+            android:background="@drawable/button"
+            android:fontFamily="casual"
+            android:onClick="onClick_reset"
+            android:text="@string/btitle_reset"
+            android:textStyle="bold"
+            app:layout_anchor="@+id/graph" />
+
+        <TextView
+            android:id="@+id/tv_possiblePatternsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/iv_block"
+            android:layout_alignLeft="@id/iv_block"
+            android:layout_alignRight="@id/iv_block"
+            android:layout_alignStart="@id/iv_block"
+            android:layout_alignTop="@+id/iv_block"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="casual"
+            android:text="@string/tv_pattern"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_possiblePatternsContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/tv_possiblePatternsTitle"
+            android:layout_alignLeft="@id/tv_possiblePatternsTitle"
+            android:layout_alignRight="@id/tv_possiblePatternsTitle"
+            android:layout_alignStart="@id/tv_possiblePatternsTitle"
+            android:layout_below="@id/tv_possiblePatternsTitle"
+            android:layout_centerVertical="true"
+            android:fontFamily="casual"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_advice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/iv_block"
+            android:layout_alignLeft="@id/iv_block"
+            android:layout_alignRight="@id/iv_block"
+            android:layout_alignStart="@id/iv_block"
+            android:layout_alignTop="@+id/b_deleteOne"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="casual"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_reese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_block"
+            android:layout_alignEnd="@id/iv_block"
+            android:layout_alignRight="@id/iv_block"
+            android:layout_alignTop="@id/b_resetAll"
+            android:adjustViewBounds="true"
+            android:scaleType="fitEnd"
+            app:srcCompat="@drawable/reese" />
+
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_turnipPrice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+        <EditText
+            android:id="@+id/et_addTurnipPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="100sp" />
+
+        <Button
+            android:id="@+id/b_turnipEnter"
+            android:layout_width="160dp"
+            android:layout_height="75dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_below="@id/et_addTurnipPrice"
+            android:background="@drawable/button"
+            android:fontFamily="casual"
+            android:onClick="onClick_enterTurnipVal"
+            android:text="@string/btitle_enter"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/b_turnipBack"
+            android:layout_width="160dp"
+            android:layout_height="75dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/et_addTurnipPrice"
+            android:background="@drawable/button"
+            android:fontFamily="casual"
+            android:onClick="onClick_backToMain"
+            android:text="@string/btitle_back"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_basePrice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+        <EditText
+            android:id="@+id/et_newBasePrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:ems="10"
+            android:inputType="number"
+            android:textSize="100sp" />
+
+        <Button
+            android:id="@+id/b_baseEnter"
+            android:layout_width="160dp"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_below="@+id/et_newBasePrice"
+            android:background="@drawable/button"
+            android:fontFamily="casual"
+            android:onClick="onClick_enterBaseVal"
+            android:text="@string/btitle_enter"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/b_baseBack"
+            android:layout_width="160dp"
+            android:layout_height="75dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/et_newBasePrice"
+            android:background="@drawable/button"
+            android:fontFamily="casual"
+            android:onClick="onClick_backToMain"
+            android:text="@string/btitle_back"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
